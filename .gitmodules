@@ -1,0 +1,3 @@
+[submodule "themes/mints"]
+	path = themes/mints
+	url = https://github.com/mintsweet/hexo-theme-mints.git
