@@ -1,94 +1,62 @@
-<!doctype html>
-<html>
-  <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Beatseat Insight</title>
-  <meta name="author" content="WenDavid" />
-  <meta name="keywords" content="" />
-  <meta name="description" content="" />
-  
-  <link rel="icon" href="/favicon.ico" />
-  
-  <link rel="stylesheet" href="/css/style.css">
-  <script src="https://cdn.tailwindcss.com"></script>
-<meta name="generator" content="Hexo 7.2.0"></head>
+{% extends '_layout.swig' %}
+{% import '_macro/post-collapse.swig' as post_template %}
+{% import '_macro/sidebar.swig' as sidebar_template %}
 
-  <body class="relative pb-8 min-h-screen border-t-2 border-black">
-    <header class="shadow-sm bg-white">
-  <div class="flex justify-between mx-auto max-w-3xl py-2">
-    <div class="flex items-center">
-      <div class="w-8 h-8">
-        <a href="/">
-          <img src="/logo.svg" alt="Logo" />
-        </a>
-      </div>
-      <h1 class="ml-4"><a href="/" title="Beatseat Insight">Beatseat Insight</a></h1>
+{% block title %}{{ __('title.archive') }} | {{ config.title }}{% endblock %}
+
+{% block page_class %}page-archive{% endblock %}
+
+{% block content %}
+
+  {#####################}
+  {### ARCHIVE BLOCK ###}
+  {#####################}
+  <div class="post-block archive">
+    <div id="posts" class="posts-collapse">
+      <span class="archive-move-on"></span>
+
+      <span class="archive-page-counter">
+        {% set cheers %}
+        {% set posts_length = site.posts.length %}
+        {% if posts_length > 210 %} {% set cheers = 'excellent' %}
+          {% elif posts_length > 130 %} {% set cheers = 'great' %}
+          {% elif posts_length > 80 %} {% set cheers = 'good' %}
+          {% elif posts_length > 50 %} {% set cheers = 'nice' %}
+          {% elif posts_length > 30 %} {% set cheers = 'ok' %}
+        {% else %}
+          {% set cheers = 'um' %}
+        {% endif %}
+        {{ __('cheers.' + cheers) }}! {{ _p("counter.archive_posts", site.posts.length) }} {{ __('keep_on') }}
+      </span>
+
+      {% for post in page.posts %}
+
+        {# Show year #}
+        {% set year %}
+        {% set post.year = date(post.date, 'YYYY') %}
+
+        {% if post.year !== year %}
+          {% set year = post.year %}
+          <div class="collection-title">
+            <{% if theme.seo %}h2{% else %}h1{% endif %} class="archive-year" id="archive-year-{{ year }}">{{ year }}</{% if theme.seo %}h2{% else %}h1{% endif %}>
+          </div>
+        {% endif %}
+        {# endshow #}
+
+        {{ post_template.render(post) }}
+
+      {% endfor %}
+
     </div>
-    <ul class="flex items-center justify-end">
-      
-      <li class="ml-4"><a href="/" title="Home">Home</a></li>
-      
-      <li class="ml-4"><a href="/about/" title="About">About</a></li>
-      
-      <li class="ml-4"><a href="/archives/" title="Archives">Archives</a></li>
-      
-      <li class="ml-4"><a href="/tags/" title="Tags">Tags</a></li>
-      
-    </ul>
   </div>
-</header>
+  {#########################}
+  {### END ARCHIVE BLOCK ###}
+  {#########################}
 
-    <main>
-      <div class="mx-auto max-w-3xl"><div class="py-8">
-  <h2 class="text-2xl font-semibold text-center">
-    1 Post In Total
-  </h2>
-  <ul class="flex flex-col justify-center">
-       
-    <h3 class="mt-8 mb-4 text-xl font-semibold">2024</h3>
-    
-    <li>
-      <a
-        href="/2024/06/03/hello-world/"
-        class="group flex px-4 py-2 hover:bg-gray-100 transition-colors"
-      >
-        <span class="basis-20 group-hover:text-orange-500">
-          06-03
-        </span>
-        <span class="flex-auto group-hover:text-orange-500"
-          >Hello World</span
-        ></a
-      >
-    </li>
-    
-  </ul>
-</div>
-</div>
-    </main>
-    <footer class="absolute bottom-2 left-0 right-0">
-  <div class="mx-auto max-w-3xl flex items-center justify-between">
-    <p class="text-sm text-gray-400">
-       Copyright &copy;  2024 WenDavid
-    </p>
-    <p class="text-sm text-gray-400">
-      Powered by
-      <a
-        href="https://hexo.io"
-        target="_blank"
-        class="text-orange-300 underline"
-        >Hexo</a
-      >
-      • Theme
-      <a
-        href="https://github.com/mintsweet/hexo-theme-mints"
-        target="_blank"
-        class="text-orange-300 underline"
-        >Mints</a
-      >
-    </p>
-  </div>
-</footer>
+  {% include '_partials/pagination.swig' %}
 
-  </body>
-</html>
+{% endblock %}
+
+{% block sidebar %}
+  {{ sidebar_template.render(false) }}
+{% endblock %}
