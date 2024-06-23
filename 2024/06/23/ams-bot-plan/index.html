@@ -20,23 +20,29 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"beatseat.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Beatseat Insight">
-<meta property="og:url" content="https://beatseat.github.io/index.html">
+    <meta name="description" content="服务器运行控制  服务器状态：CPU、内存占用；子服MSPT等 开启、关闭服务器 多服务器  白名单控制 部分服务器的封闭（例如部分服务器用于测试，防止别人随便进入） 服务器资源分配（例如多个镜像服、多个创造服时“熔断”机制；有测试服务器时优先保证测试服务器资源占用稳定）    此处多个镜像服、多个创造服考虑到即时性，希望通过类似DimensionAPI的方式进行。即使用多">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AMS智能Bot计划">
+<meta property="og:url" content="https://beatseat.github.io/2024/06/23/ams-bot-plan/index.html">
 <meta property="og:site_name" content="Beatseat Insight">
+<meta property="og:description" content="服务器运行控制  服务器状态：CPU、内存占用；子服MSPT等 开启、关闭服务器 多服务器  白名单控制 部分服务器的封闭（例如部分服务器用于测试，防止别人随便进入） 服务器资源分配（例如多个镜像服、多个创造服时“熔断”机制；有测试服务器时优先保证测试服务器资源占用稳定）    此处多个镜像服、多个创造服考虑到即时性，希望通过类似DimensionAPI的方式进行。即使用多">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-06-23T13:56:55.000Z">
+<meta property="article:modified_time" content="2024-06-23T14:05:18.208Z">
 <meta property="article:author" content="WenDavid">
+<meta property="article:tag" content="Minecraft">
+<meta property="article:tag" content="Plans">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://beatseat.github.io/">
+<link rel="canonical" href="https://beatseat.github.io/2024/06/23/ams-bot-plan/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://beatseat.github.io/2024/06/23/ams-bot-plan/","path":"2024/06/23/ams-bot-plan/","title":"AMS智能Bot计划"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Beatseat Insight</title>
+<title>AMS智能Bot计划 | Beatseat Insight</title>
   
 
 
@@ -66,7 +72,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">Beatseat Insight</h1>
+      <p class="site-title">Beatseat Insight</p>
       <i class="logo-line"></i>
     </a>
   </div>
@@ -88,7 +94,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -101,6 +107,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%90%E8%A1%8C%E6%8E%A7%E5%88%B6"><span class="nav-number">1.</span> <span class="nav-text">服务器运行控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%BA%E5%9F%9F%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C"><span class="nav-number">2.</span> <span class="nav-text">区域文件操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9C%9F%E4%BA%BA"><span class="nav-number">3.</span> <span class="nav-text">真人</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%81%87%E4%BA%BA"><span class="nav-number">4.</span> <span class="nav-text">假人</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B7%AF%E5%BE%84%E7%82%B9"><span class="nav-number">5.</span> <span class="nav-text">路径点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%92%E9%80%9A"><span class="nav-number">6.</span> <span class="nav-text">互通</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -146,144 +153,17 @@
 
     </div>
 
-    <div class="main-inner index posts-expand">
+    <div class="main-inner post posts-expand">
 
-    
+
+  
 
 
 <div class="post-block">
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://beatseat.github.io/2024/06/07/plans/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="WenDavid">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Beatseat Insight">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Beatseat Insight">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-              <span class="post-sticky-flag" title="置顶">
-                <i class="fa fa-thumbtack"></i>
-              </span><a href="/2024/06/07/plans/" class="post-title-link" itemprop="url">Proposal in Periods</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-06-07 19:51:05" itemprop="dateCreated datePublished" datetime="2024-06-07T19:51:05+08:00">2024-06-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-06-23 21:57:09" itemprop="dateModified" datetime="2024-06-23T21:57:09+08:00">2024-06-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Plan/" itemprop="url" rel="index"><span itemprop="name">Plan</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="reading-plan">Reading Plan:</h2>
-<h3 id="field-papers-more-practical-mostly-take-a-glance">Field Papers
-(More Practical, Mostly take a glance)</h3>
-<ol type="1">
-<li>Federated Learning</li>
-<li>LLM Security</li>
-<li>VLM works</li>
-<li>ICLR 2024 papers</li>
-</ol>
-<h3 id="materials-more-theoretical">Materials (More Theoretical)</h3>
-<ol type="1">
-<li>Komologrov Complexity, basically about compression complexity
-part.</li>
-<li>Tensor Programs</li>
-</ol>
-<h2 id="experiment-plan">Experiment Plan:</h2>
-<p>I plan to do some experiments on LLM explanability. - Simplify some
-codes</p>
-<h2 id="skills-learning-plan">Skills Learning Plan:</h2>
-<ul>
-<li>I recently gain interest in: Blender and Manim.</li>
-<li>Some classical CS courses such as operating system, distributed
-system, computer graphics (6.824, GAMES101, etc.)</li>
-<li>Since I have been developing Minecraft mods in Java, I get
-interested in Kotlin.</li>
-</ul>
-<h2 id="development-plan">Development Plan:</h2>
-<ol type="1">
-<li>A CI/CD working flow, <strong>ComfyUI</strong> like, for data
-visualization? Needs a template for some basic model, for basic
-evaluation for new base model/new methods, etc.</li>
-<li>papers.cool like paper reading website/tool, e.g. using prompt from
-my self, more complex filter(in a time range), combining e.g. sort by
-stars or OpenReview ratings. Display the openreview comments.</li>
-</ol>
-<h2 id="gaming-plan">Gaming Plan</h2>
-<ul>
-<li>Propose to write Minecraft mods which could reload the world without
-restarting Minecraft (Time-Machine like features)</li>
-<li>GTNH and Factorio Playing</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://beatseat.github.io/2024/06/23/ams-bot-plan/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -297,13 +177,13 @@ restarting Minecraft (Time-Machine like features)</li>
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Beatseat Insight">
+      <meta itemprop="name" content="AMS智能Bot计划 | Beatseat Insight">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/06/23/ams-bot-plan/" class="post-title-link" itemprop="url">AMS智能Bot计划</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          AMS智能Bot计划
+        </h1>
 
         <div class="post-meta-container">
           <div class="post-meta">
@@ -326,8 +206,7 @@ restarting Minecraft (Time-Machine like features)</li>
     
     
     
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="服务器运行控制">服务器运行控制</h2>
+    <div class="post-body" itemprop="articleBody"><h2 id="服务器运行控制">服务器运行控制</h2>
 <ul>
 <li>服务器状态：CPU、内存占用；子服MSPT等</li>
 <li>开启、关闭服务器</li>
@@ -392,7 +271,6 @@ server或者mineflayer等生成）</li>
 </ul></li>
 </ul>
 
-      
     </div>
 
     
@@ -400,116 +278,26 @@ server或者mineflayer等生成）</li>
     
 
     <footer class="post-footer">
-        <div class="post-eof"></div>
-      
+          <div class="post-tags">
+              <a href="/tags/Minecraft/" rel="tag"># Minecraft</a>
+              <a href="/tags/Plans/" rel="tag"># Plans</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/06/13/ams-plan/" rel="prev" title="Developing Plan for AMS">
+                  <i class="fa fa-angle-left"></i> Developing Plan for AMS
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
     </footer>
   </article>
 </div>
 
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://beatseat.github.io/2024/06/13/ams-plan/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="WenDavid">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Beatseat Insight">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Beatseat Insight">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/06/13/ams-plan/" class="post-title-link" itemprop="url">Developing Plan for AMS</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-06-13 01:13:31" itemprop="dateCreated datePublished" datetime="2024-06-13T01:13:31+08:00">2024-06-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-06-22 22:28:03" itemprop="dateModified" datetime="2024-06-22T22:28:03+08:00">2024-06-22</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="carpet-ams-addition维护">Carpet-AMS-Addition维护</h2>
-<h3 id="合成表相关api">合成表相关API</h3>
-<p>计划采用Fabric
-API在编译期用来生成各个版本的数据包，用以动态装载/卸载（主要是考虑兼容性，所以尽量采取Minecraft官方的手段来修改）</p>
-<h3 id="features">features</h3>
-<p>之前更新build.yml的时候漏掉了Mixin Audit相关，计划加回去</p>
-<h2 id="备份">备份</h2>
-<h3 id="prime-backup-extnsions">Prime Backup Extnsions?</h3>
-<p>镜像服、创造服专用的管理插件。考虑在镜像服中常常有临时的测试需求，但同时也经常有人在镜像服设计建筑、机器。</p>
-<p>目前，已经有multi-source的Prime Backup插件，可以从多个MCDR的prime
-backup实例中摘取部分region文件用来回档。</p>
-<p>考虑进一步整合如下功能： -
-多个创造服、镜像服的互相同步、资源分配、开关控制 -
-区块级的热备份、热回档</p>
-<p>目前第一个大概就是缝合一下multi source prime
-backup和多服务器启动管理的插件。当然，我比较趋向的想法其实应该是多维度的那种，也不需要特别管理某个世界的占用。</p>
-<p>然后第二个肯定需要mod来结合，应该可以提取一个“单区块的mca文件”然后用来读取，类似于作为一个新维度装载。</p>
-<h2 id="version-revert">Version Revert</h2>
-<p>主要对1.20.5+的存档向下转换。1.20.5开始将nbt的机制改变为组件，希望写一个小脚本或mod让1.20.5+存档能初步向下转化。</p>
-<h2 id="模组计划">模组计划</h2>
-<h3 id="item-scroller-craftaddon">Item Scroller CraftAddon</h3>
-<h4 id="主要添加功能">主要添加功能</h4>
-<ul>
-<li>切石机、铁砧等</li>
-<li>基于配方书的massCraft</li>
-</ul>
-<h4 id="主要目标">主要目标</h4>
-<p>升级到高版本。主要是将Sakura-Ryoko的版本向上移植。</p>
-<h3 id="oh-my-minecraft-client">Oh-My-Minecraft-Client</h3>
-<p>考虑到plusls相关模组的维护最近相对减少，考虑将Oh-My-Minecraft-Client中的查看村民交易的功能使用原版方式（F3+I）进行实现。这一方式的好处是可以用更原版的方式进行支持，从而避免一些跨版本情况下的协议兼容性问题；另一方面是可以相当于依赖更新更活跃的Carpet-TIS-Addition。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
 
 
 
